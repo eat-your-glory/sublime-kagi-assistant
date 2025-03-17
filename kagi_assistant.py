@@ -4,10 +4,10 @@ import webbrowser
 from urllib.parse import quote
 
 MODEL_OPTIONS = {
-    "Web": "web",
-    "Academic": "academic",
-    "Writing": "writing",
-    "Math": "math",
+    "Claude 3.7 Sonnet": "claude-3-sonnet",
+    "o3 mini": "o3-mini",
+    "GPT 4o": "gpt-4o",
+    "DeepSeek R1": "deepseek-r1",
 }
 
 
@@ -45,7 +45,7 @@ class ModelInputHandler(sublime_plugin.ListInputHandler):
         return focus
 
     def list_items(self):
-        order = ["Web", "Academic", "Math", "Writing"]
+        order = ["Claude 3.7 Sonnet", "o3 mini", "GPT 4o", "DeepSeek R1"]
         ordered_items = [(key, FOCUS_OPTIONS[key]) for key in order]
         return list(ordered_items)
 
