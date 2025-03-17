@@ -25,14 +25,14 @@ class KagiAssistantCommand(sublime_plugin.WindowCommand):
 class ModelInputHandler(sublime_plugin.ListInputHandler):
     def __init__(self):
         super().__init__()
-        self.last_focus = None
+        self.last_model = None
 
     def placeholder(self):
-        return "Select focus"
+        return "Select model"
 
     def initial_text(self):
-        if self.last_focus:
-            return self.last_focus
+        if self.last_model:
+            return self.last_model
 
         # TODO: add settings for default option
         # settings = sublime.load_settings("AskPerplexity.sublime-settings")
@@ -40,13 +40,13 @@ class ModelInputHandler(sublime_plugin.ListInputHandler):
         # if default_focus in FOCUS_OPTIONS.values():
         #     return default_focus
 
-    def confirm(self, focus):
-        self.last_focus = focus
-        return focus
+    def confirm(self, model):
+        self.last_model = model
+        return model
 
     def list_items(self):
         order = ["Claude 3.7 Sonnet", "o3 mini", "GPT 4o", "DeepSeek R1"]
-        ordered_items = [(key, FOCUS_OPTIONS[key]) for key in order]
+        ordered_items = [(key, MODEL_OPTIONS[key]) for key in order]
         return list(ordered_items)
 
     def next_input(self, args):
