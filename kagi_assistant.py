@@ -3,7 +3,7 @@ import sublime_plugin
 import webbrowser
 from urllib.parse import quote
 
-FOCUS_OPTIONS = {
+MODEL_OPTIONS = {
     "Web": "web",
     "Academic": "academic",
     "Writing": "writing",
@@ -11,18 +11,18 @@ FOCUS_OPTIONS = {
 }
 
 
-class AskPerplexityCommand(sublime_plugin.WindowCommand):
-    def run(self, focus, query):
-        url = "https://www.perplexity.ai/search?q={}&focus={}".format(
-            quote(query), focus
+class KagiAssistantCommand(sublime_plugin.WindowCommand):
+    def run(self, model, query):
+        url = "https://kagi.com/assistant?q={}&profile={}".format(
+            quote(query), model
         )
         webbrowser.open(url)
 
     def input(self, args):
-        return FocusInputHandler()
+        return ModelInputHandler()
 
 
-class FocusInputHandler(sublime_plugin.ListInputHandler):
+class ModelInputHandler(sublime_plugin.ListInputHandler):
     def __init__(self):
         super().__init__()
         self.last_focus = None
