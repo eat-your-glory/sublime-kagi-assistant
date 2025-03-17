@@ -1,6 +1,6 @@
 [
     {
-        "caption": "Ask Perplexity",
-        "command": "ask_perplexity"
+        "caption": "Kagi Assistant",
+        "command": "kagi_assistant"
     }
 ]
