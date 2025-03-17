@@ -8,6 +8,10 @@ MODEL_OPTIONS = {
     "o3 mini": "o3-mini",
     "GPT 4o": "gpt-4o",
     "DeepSeek R1": "deepseek-r1",
+    "DeepSeek R1 Distill Llama 70B": "deepseek-r1-distill-llama-70b",
+    "Qwen QwQ 32B": "qwen-qwq-32b",
+    "Gemini 2.0 Flash": "gemini-flash",
+    "Kagi Code": "code"
 }
 
 
@@ -45,7 +49,7 @@ class ModelInputHandler(sublime_plugin.ListInputHandler):
         return model
 
     def list_items(self):
-        order = ["Claude 3.7 Sonnet", "o3 mini", "GPT 4o", "DeepSeek R1"]
+        order = ["Claude 3.7 Sonnet", "o3 mini", "GPT 4o", "DeepSeek R1", "DeepSeek R1 Distill Llama 70B", "Qwen QwQ 32B", "Gemini 2.0 Flash", "Kagi Code"]
         ordered_items = [(key, MODEL_OPTIONS[key]) for key in order]
         return list(ordered_items)
 
